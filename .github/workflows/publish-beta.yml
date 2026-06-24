@@ -4,7 +4,12 @@ on:
   push:
     branches: [ main ]
     paths:
-        - 'Pek.USEEPAY/**'
+      - 'DH.Payment.Alipay/**'
+      - 'DH.Payment.WeChatPay/**'
+      - 'DH.Payment.QPay/**'
+      - 'DH.Payment.JDPay/**'
+      - 'DH.Payment.LianLianPay/**'
+      - 'DH.Payment.UnionPay/**'
   workflow_dispatch:
 
 jobs:
@@ -12,22 +17,31 @@ jobs:
 
     runs-on: ubuntu-latest
 
+    strategy:
+      matrix:
+        project:
+          - DH.Payment.Alipay/DH.Payment.Alipay.csproj
+          - DH.Payment.WeChatPay/DH.Payment.WeChatPay.csproj
+          - DH.Payment.QPay/DH.Payment.QPay.csproj
+          - DH.Payment.JDPay/DH.Payment.JDPay.csproj
+          - DH.Payment.LianLianPay/DH.Payment.LianLianPay.csproj
+          - DH.Payment.UnionPay/DH.Payment.UnionPay.csproj
+
     steps:
     - uses: actions/checkout@v4
     - name: Setup dotNET
       uses: actions/setup-dotnet@v4
       with:
         dotnet-version: |
-          8.x
           9.x
+          10.x
     - name: Restore
       run: |
-        dotnet restore Pek.USEEPAY/Pek.USEEPAY.csproj
+        dotnet restore ${{ matrix.project }}
     - name: Build
       run: |
-        dotnet pack --no-restore --version-suffix $(date "+%Y.%m%d-beta%H%M") -c Release -o out Pek.USEEPAY/Pek.USEEPAY.csproj
+        dotnet pack --no-restore --version-suffix $(date "+%Y.%m%d-beta%H%M") -c Release -o out ${{ matrix.project }}
     - name: Publish
       run: |
-        #dotnet nuget push ./out/*.nupkg --skip-duplicate --source https://nuget.pkg.github.com/PeiKeSmart/index.json --api-key ${{ github.token }}
         dotnet nuget push ./out/*.nupkg --skip-duplicate --source https://api.nuget.org/v3/index.json --api-key ${{ secrets.nugetKey }}
         dotnet nuget push ./out/*.nupkg --skip-duplicate --source https://nuget.chuangchu.net/v3/index.json --api-key ${{ secrets.mynugetKey }}
