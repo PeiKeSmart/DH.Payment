@@ -1,9 +1,9 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <TargetFrameworks>net9.0;net10.0</TargetFrameworks>
-    <RootNamespace>DH.Payment.Alipay</RootNamespace>
-    <AssemblyTitle>支付宝支付类库</AssemblyTitle>
-    <Description>基于DH框架的支付宝支付类库，参考https://github.com/essensoft/payment</Description>
+    <RootNamespace>DH.Payment.WeChatPay</RootNamespace>
+    <AssemblyTitle>微信支付类库</AssemblyTitle>
+    <Description>基于DH框架的微信支付类库，参考https://github.com/essensoft/payment</Description>
     <Company>湖北登灏科技有限公司</Company>
     <Copyright>©2020-2026 湖北登灏科技有限公司</Copyright>
     <VersionPrefix>10.1</VersionPrefix>
@@ -43,11 +43,12 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.SourceLink.GitHub" Version="10.0.102">
+    <PackageReference Include="Microsoft.SourceLink.GitHub" Version="10.0.300">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
-    <PackageReference Include="Pek.Common" Version="4.17.2026.130-beta1028" />
+    <PackageReference Include="Pek.Common" Version="4.22.2026.416-beta1017" />
+    <PackageReference Include="Pek.Payment.Security" Version="4.22.2026.624-beta1527" />
   </ItemGroup>
 
   <ItemGroup>
