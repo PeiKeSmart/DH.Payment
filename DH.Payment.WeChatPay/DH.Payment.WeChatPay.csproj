@@ -1,4 +1,4 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
   <PropertyGroup>
     <TargetFrameworks>net9.0;net10.0</TargetFrameworks>
     <RootNamespace>DH.Payment.WeChatPay</RootNamespace>
@@ -20,6 +20,9 @@
     <NoWarn>1701;1702;1591;NU5104;NU1505;NETSDK1138;CS7035</NoWarn>
     <AnalysisLevel>latest</AnalysisLevel>
     <WarningsAsErrors>CA2007</WarningsAsErrors>
+    <OutputType>Library</OutputType>
+    <!--禁止生成launchSettings.json-->
+    <NoDefaultLaunchSettingsFile>True</NoDefaultLaunchSettingsFile>
   </PropertyGroup>
 
   <PropertyGroup>
@@ -47,6 +50,7 @@
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
+    <PackageReference Include="Pek.AspNetCore" Version="4.22.2026.501-beta1705" />
     <PackageReference Include="Pek.Common" Version="4.22.2026.416-beta1017" />
     <PackageReference Include="Pek.Payment.Security" Version="4.22.2026.624-beta1527" />
   </ItemGroup>

@@ -1,9 +1,7 @@
-﻿using DH.Payment.Alipay.Parser;
+﻿using System.Net;
+
+using DH.Payment.Alipay.Parser;
 using DH.Payment.Alipay.Utility;
-using System;
-using System.Net;
-using System.Net.Http;
-using System.Threading.Tasks;
 
 namespace DH.Payment.Alipay
 {
