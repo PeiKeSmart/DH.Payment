@@ -1,12 +1,12 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <TargetFrameworks>net9.0</TargetFrameworks>
-    <RootNamespace>Pek.UseePay</RootNamespace>
-    <AssemblyTitle>UseePay支付SDK库</AssemblyTitle>
-    <Description>基于DH框架的UseePay支付SDK库</Description>
+    <TargetFrameworks>net9.0;net10.0</TargetFrameworks>
+    <RootNamespace>DH.Payment.Alipay</RootNamespace>
+    <AssemblyTitle>支付宝支付类库</AssemblyTitle>
+    <Description>基于DH框架的支付宝支付类库，参考https://github.com/essensoft/payment</Description>
     <Company>湖北登灏科技有限公司</Company>
-    <Copyright>©2020-2025 湖北登灏科技有限公司</Copyright>
-    <VersionPrefix>4.12</VersionPrefix>
+    <Copyright>©2020-2026 湖北登灏科技有限公司</Copyright>
+    <VersionPrefix>10.1</VersionPrefix>
     <VersionSuffix>$([System.DateTime]::Now.ToString(`yyyy.MMdd`))</VersionSuffix>
     <Version>$(VersionPrefix).$(VersionSuffix)</Version>
     <FileVersion>$(Version)</FileVersion>
